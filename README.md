@@ -92,23 +92,17 @@ This project is a comprehensive example of using modern web development technolo
 ## Screenshots
 
 _Add screenshots of your application here._
-
 ### Home Page
-![Home Page](![image](https://github.com/karabasnejat/MarvelComicsExplorer/assets/62561906/10e17796-ec7a-4bf0-bb86-1074cbe4ba6f)
-)
+![Home Page](https://github.com/karabasnejat/MarvelComicsExplorer/assets/62561906/10e17796-ec7a-4bf0-bb86-1074cbe4ba6f)
 
 ### Search Results
-![Search Results](![image](https://github.com/karabasnejat/MarvelComicsExplorer/assets/62561906/dc3af69e-6ad9-4b65-8835-24f68ae750ec)
-)
+![Search Results](https://github.com/karabasnejat/MarvelComicsExplorer/assets/62561906/dc3af69e-6ad9-4b65-8835-24f68ae750ec)
 
 ### Character Details
-![Character Details](![image](https://github.com/karabasnejat/MarvelComicsExplorer/assets/62561906/b07b5894-7011-40bc-9a8d-21a4c33368ac)
-)
+![Character Details](https://github.com/karabasnejat/MarvelComicsExplorer/assets/62561906/b07b5894-7011-40bc-9a8d-21a4c33368ac)
 
 ### Comic Book Details
-![Comic Book Details](![image](https://github.com/karabasnejat/MarvelComicsExplorer/assets/62561906/e8551527-bee2-49b4-8e11-4e702d396dc7)
-)
-
+![Comic Book Details](https://github.com/karabasnejat/MarvelComicsExplorer/assets/62561906/e8551527-bee2-49b4-8e11-4e702d396dc7)
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
