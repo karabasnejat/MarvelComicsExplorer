@@ -1,4 +1,4 @@
-# MarvelHeroSearchApp
+# MarvelComicsExplorer
 
 MarvelHeroSearchApp is a web application built using ASP.NET Core MVC and .NET 7.0. It allows users to search for Marvel characters, view character details, and explore related comic books. The application uses the Marvel API to fetch character and comic book data.
 
