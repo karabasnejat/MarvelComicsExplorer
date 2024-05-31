@@ -1,0 +1,62 @@
+﻿@model ComicApp.Models.ComicDetail
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .comic-image {
+            max-width: 300px;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .comic-detail {
+            background-color: #1c1c1c;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .comic-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .comic-published {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .comic-description {
+            margin-top: 20px;
+        }
+
+        .back-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="comic-detail">
+            <img src="@Model.Thumbnail" class="comic-image" alt="@Model.Title">
+            <div class="comic-title">@Model.Title</div>
+            <div class="comic-published">Published: @Model.PublishedDate</div>
+            <div class="comic-description">@Model.Description</div>
+            <div class="comic-creators">Creators: @Model.Creators</div>
+        </div>
+        <div class="back-button">
+            <a href="@Url.Action("Search", "Character", new { characterName = ViewBag.LastSearchedCharacter })" class="btn btn-secondary">Back</a>
+        </div>
+    </div>
+</body>
+</html>

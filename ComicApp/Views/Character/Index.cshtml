@@ -1,0 +1,101 @@
+﻿@model ComicApp.Models.Character
+@{
+    ViewData["Title"] = "Marvel Character Search";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .character-image {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .comic-tile {
+            margin-bottom: 20px;
+        }
+
+        .comic-title {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .comic-img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Search for a Marvel Character</h1>
+        <form asp-action="Search" method="get" class="form-inline mb-4">
+            <div class="form-group">
+                <input id="characterName" type="text" name="characterName" class="form-control mr-2" placeholder="Enter character name" value="@ViewBag.LastSearchedCharacter" />
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        @if (Model != null)
+        {
+            <div class="card">
+                <img src="@Model.Thumbnail" class="card-img-top character-image" alt="@Model.Name">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Name</h5>
+                    <p class="card-text">@Model.Description</p>
+                    <h6>Comics:</h6>
+                    <div class="row">
+                        @foreach (var comic in Model.Comics)
+                        {
+                            <div class="col-md-3 comic-tile">
+                                <a asp-controller="Comic" asp-action="Detail" asp-route-comicId="@comic.ComicId">
+                                    <img src="@comic.Thumbnail" class="comic-img" alt="@comic.Title">
+                                </a>
+                                <div class="comic-title">@comic.Title</div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+        else if (ViewBag.ErrorMessage != null)
+        {
+            <div class="alert alert-danger">
+                @ViewBag.ErrorMessage
+            </div>
+        }
+    </div>
+
+    <script>
+        $(function () {
+            $("#characterName").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: '@Url.Action("GetCharacterNames", "Character")',
+                        data: { query: request.term },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                minLength: 2,
+                select: function (event, ui) {
+                    $('#characterName').val(ui.item.value);
+                }
+            });
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
